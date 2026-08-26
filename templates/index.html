@@ -1,0 +1,926 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Khanz___subscriptions | Premium Subscriptions & AI Tools
+    </title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: rgba(13, 13, 13, 0.96);
+            border-bottom: 1px solid #242424;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .nav-order {
+            padding: 9px 15px;
+            background: #8b5cf6;
+            color: white !important;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .hero {
+            min-height: 78vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 80px 20px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #28104d 0%,
+                    #080808 58%
+                );
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 18px;
+
+            border: 1px solid #8b5cf6;
+            border-radius: 30px;
+
+            color: #c4b5fd;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #8b5cf6;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #444;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #7c3aed;
+        }
+
+        .section {
+            padding: 80px 7%;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #999;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .category {
+            padding: 35px;
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 18px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            border-color: #8b5cf6;
+        }
+
+        .category-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .category p {
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .category a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 16px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            border-color: #8b5cf6;
+        }
+
+        .product-icon {
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .product h3 {
+            margin-bottom: 8px;
+        }
+
+        .product p {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .product a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .trust {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .trust-box {
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .trust-box h3 {
+            margin-bottom: 8px;
+        }
+
+        .trust-box p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .about-preview {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #170b2b,
+                    #111
+                );
+
+            border: 1px solid #292929;
+
+            border-radius: 22px;
+            padding: 50px 30px;
+        }
+
+        .about-preview p {
+            color: #aaa;
+            margin: 15px auto 25px;
+            max-width: 850px;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 80px 20px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #1c0c35 0%,
+                    #080808 65%
+                );
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+
+            background: #0d0d0d;
+            border-top: 1px solid #222;
+
+            color: #888;
+        }
+
+        .footer-links {
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+
+        @media (max-width: 1100px) {
+
+            .categories,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trust {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .categories,
+            .products,
+            .trust {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <div class="logo">
+        Khanz<span>___</span>subscriptions
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/entertainment">
+            Entertainment
+        </a>
+
+        <a href="/ai-tools">
+            AI Tools
+        </a>
+
+        <a href="/vpn">
+            VPN & Privacy
+        </a>
+
+        <a href="/services">
+            Services
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+        <a
+            href="https://wa.me/923343516033"
+            target="_blank"
+            class="nav-order"
+        >
+            WhatsApp
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ⚡ Premium Digital Services
+        </div>
+
+        <h1>
+            Premium Entertainment
+            <br>
+            <span>& Powerful AI Tools</span>
+        </h1>
+
+        <p>
+            Discover premium subscriptions, AI platforms,
+            creator tools, VPN services and digital services
+            in one place. Browse our services and contact us
+            directly through WhatsApp.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="#products"
+                class="btn primary"
+            >
+                Browse Products
+            </a>
+
+            <a
+                href="/services"
+                class="btn secondary"
+            >
+                Explore Services
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>
+            Explore Our Categories
+        </h2>
+
+        <p>
+            Choose the type of digital service you need.
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                🎬
+            </div>
+
+            <h3>
+                Entertainment
+            </h3>
+
+            <p>
+                Streaming, anime and premium entertainment
+                subscriptions.
+            </p>
+
+            <a href="/entertainment">
+                View Entertainment →
+            </a>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                🤖
+            </div>
+
+            <h3>
+                AI Tools
+            </h3>
+
+            <p>
+                AI assistants, creative tools, productivity
+                platforms and more.
+            </p>
+
+            <a href="/ai-tools">
+                View AI Tools →
+            </a>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                🛡️
+            </div>
+
+            <h3>
+                VPN & Privacy
+            </h3>
+
+            <p>
+                Secure browsing, privacy-focused VPNs and
+                protected internet connections.
+            </p>
+
+            <a href="/vpn">
+                View VPN & Privacy →
+            </a>
+
+        </div>
+
+
+        <div class="category">
+
+            <div class="category-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Digital Services
+            </h3>
+
+            <p>
+                Creator, productivity, voice and other
+                digital services.
+            </p>
+
+            <a href="/services">
+                View Services →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section
+    class="section"
+    id="products"
+>
+
+    <div class="section-title">
+
+        <h2>
+            Featured Products
+        </h2>
+
+        <p>
+            Popular digital services available through
+            Khanz___subscriptions.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <div class="product">
+
+            <div class="product-icon">
+                🎬
+            </div>
+
+            <h3>
+                Netflix
+            </h3>
+
+            <p>
+                Premium entertainment streaming.
+            </p>
+
+            <a
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Netflix."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-icon">
+                ✨
+            </div>
+
+            <h3>
+                ChatGPT Plus
+            </h3>
+
+            <p>
+                Advanced AI assistance for productivity,
+                writing and creativity.
+            </p>
+
+            <a
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20ChatGPT%20Plus."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-icon">
+                🎨
+            </div>
+
+            <h3>
+                CapCut Pro
+            </h3>
+
+            <p>
+                Advanced video editing and creator features.
+            </p>
+
+            <a
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20CapCut%20Pro."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-icon">
+                🛡️
+            </div>
+
+            <h3>
+                VPN Services
+            </h3>
+
+            <p>
+                Explore available VPN and privacy services.
+            </p>
+
+            <a href="/vpn">
+                View VPN Services →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>
+            Why Khanz___subscriptions?
+        </h2>
+
+        <p>
+            A simple way to discover premium digital services.
+        </p>
+
+    </div>
+
+
+    <div class="trust">
+
+
+        <div class="trust-box">
+
+            <h3>
+                🔎 Wide Selection
+            </h3>
+
+            <p>
+                Entertainment subscriptions, AI tools,
+                VPN services and digital services.
+            </p>
+
+        </div>
+
+
+        <div class="trust-box">
+
+            <h3>
+                📱 Easy Ordering
+            </h3>
+
+            <p>
+                Contact us directly through WhatsApp
+                without complicated checkout.
+            </p>
+
+        </div>
+
+
+        <div class="trust-box">
+
+            <h3>
+                💬 Direct Support
+            </h3>
+
+            <p>
+                Discuss availability and service details
+                directly with our team.
+            </p>
+
+        </div>
+
+
+        <div class="trust-box">
+
+            <h3>
+                ⚡ Convenient
+            </h3>
+
+            <p>
+                Browse our digital services from your
+                phone, tablet or computer.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="about-preview">
+
+        <h2>
+            About Khanz___subscriptions
+        </h2>
+
+        <p>
+
+            Khanz___subscriptions is a digital services platform
+            focused on premium entertainment subscriptions,
+            AI tools, VPN services and creator-focused digital
+            solutions.
+
+            Our goal is to make discovering and requesting
+            digital services simple and convenient.
+
+        </p>
+
+        <a
+            href="/about"
+            class="btn primary"
+        >
+            Learn More About Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<section
+    class="contact"
+    id="contact"
+>
+
+    <h2>
+        Ready to Get Started?
+    </h2>
+
+    <p>
+        Find the service you need and contact us directly
+        through WhatsApp.
+    </p>
+
+    <a
+        href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20to%20ask%20about%20your%20services."
+        target="_blank"
+        class="btn primary"
+    >
+        💬 WhatsApp Us
+    </a>
+
+    <a
+        href="/services"
+        class="btn secondary"
+    >
+        View All Services
+    </a>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/entertainment">
+            Entertainment
+        </a>
+
+        <a href="/ai-tools">
+            AI Tools
+        </a>
+
+        <a href="/vpn">
+            VPN & Privacy
+        </a>
+
+        <a href="/services">
+            Services
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
+    © 2026 Khanz___subscriptions
+
+    <br>
+
+    Premium Subscriptions, AI Tools & Digital Services
+
+</footer>
+
+
+</body>
+
+</html>
+```

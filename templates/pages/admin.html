@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Khanz___subscriptions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: white;
+        }
+
+        .layout {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            width: 240px;
+            min-height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #0d0d0d;
+            border-right: 1px solid #242424;
+            padding: 25px 18px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 35px;
+            padding: 0 10px;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .menu-title {
+            color: #666;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin: 20px 10px 10px;
+        }
+
+        .menu a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 9px;
+            margin-bottom: 5px;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background: #1b1230;
+            color: #c4b5fd;
+        }
+
+        /* MAIN */
+
+        .main {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+            padding: 35px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .topbar h1 {
+            font-size: 30px;
+        }
+
+        .topbar p {
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .view-site {
+            background: #8b5cf6;
+            color: white;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        /* STATS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .stat-icon {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .stat h3 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* PANELS */
+
+        .panel {
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .panel-header h2 {
+            font-size: 20px;
+        }
+
+        /* CATEGORY FILTERS */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .category-card {
+            background: #0d0d0d;
+            border: 1px solid #252525;
+            border-radius: 12px;
+            padding: 18px;
+            text-decoration: none;
+            color: white;
+            transition: .2s;
+        }
+
+        .category-card:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .category-card .icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .category-card h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .category-card p {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* PRODUCTS */
+
+        .product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .product:last-child {
+            border-bottom: none;
+        }
+
+        .product-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background: #1c1c1c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            flex-shrink: 0;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            color: #777;
+            font-size: 12px;
+        }
+
+        .status {
+            padding: 5px 9px;
+            border-radius: 20px;
+            background: #12351e;
+            color: #6ee7a0;
+            font-size: 11px;
+        }
+
+        /* ADD PRODUCT */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            background: #080808;
+            border: 1px solid #292929;
+            color: white;
+            padding: 11px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #8b5cf6;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 13px;
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .save-btn:hover {
+            background: #7c3aed;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 1100px) {
+
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 750px) {
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                min-height: auto;
+                border-right: none;
+                border-bottom: 1px solid #242424;
+            }
+
+            .layout {
+                display: block;
+            }
+
+            .main {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .stats,
+            .categories,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            Khanz<span>___</span>subscriptions
+        </div>
+
+        <div class="menu-title">
+            Management
+        </div>
+
+        <div class="menu">
+
+            <a href="/admin" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="#products">
+                📦 Products
+            </a>
+
+            <a href="#add-product">
+                ➕ Add Product
+            </a>
+
+        </div>
+
+        <div class="menu-title">
+            Website
+        </div>
+
+        <div class="menu">
+
+            <a href="/">
+                🏠 View Website
+            </a>
+
+            <a href="/entertainment">
+                🎬 Entertainment
+            </a>
+
+            <a href="/ai-tools">
+                🤖 AI Tools
+            </a>
+
+            <a href="/vpn">
+                🛡️ VPN & Privacy
+            </a>
+
+            <a href="/services">
+                💼 Services
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>
+                    Admin Dashboard
+                </h1>
+
+                <p>
+                    Manage your subscriptions, AI tools, VPNs and services.
+                </p>
+
+            </div>
+
+            <a href="/" class="view-site">
+                View Website →
+            </a>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <section class="stats">
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    📦
+                </div>
+
+                <h3>
+                    {{ total }}
+                </h3>
+
+                <p>
+                    Total Products
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    🎬
+                </div>
+
+                <h3>
+                    {{ entertainment_count }}
+                </h3>
+
+                <p>
+                    Entertainment
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    {{ ai_count }}
+                </h3>
+
+                <p>
+                    AI Tools
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    {{ vpn_count }}
+                </h3>
+
+                <p>
+                    VPN & Privacy
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    💼
+                </div>
+
+                <h3>
+                    {{ services_count }}
+                </h3>
+
+                <p>
+                    Services
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORY OVERVIEW -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Product Categories
+                </h2>
+
+            </div>
+
+
+            <div class="categories">
+
+                <a
+                    href="/entertainment"
+                    class="category-card"
+                >
+
+                    <div class="icon">
+                        🎬
+                    </div>
+
+                    <h3>
+                        Entertainment
+                    </h3>
+
+                    <p>
+                        {{ entertainment_count }} products
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="/ai-tools"
+                    class="category-card"
+                >
+
+                    <div class="icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI Tools
+                    </h3>
+
+                    <p>
+                        {{ ai_count }} products
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="/vpn"
+                    class="category-card"
+                >
+
+                    <div class="icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        VPN & Privacy
+                    </h3>
+
+                    <p>
+                        {{ vpn_count }} products
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="/services"
+                    class="category-card"
+                >
+
+                    <div class="icon">
+                        💼
+                    </div>
+
+                    <h3>
+                        Services
+                    </h3>
+
+                    <p>
+                        {{ services_count }} products
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCTS -->
+
+        <section
+            class="panel"
+            id="products"
+        >
+
+            <div class="panel-header">
+
+                <h2>
+                    All Products
+                </h2>
+
+            </div>
+
+
+            {% if products %}
+
+                {% for product in products %}
+
+                <div class="product">
+
+                    <div class="product-icon">
+                        {{ product.icon }}
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            {{ product.name }}
+                        </h3>
+
+                        <p>
+                            {{ product.category }}
+                            •
+                            {{ product.price }}
+                        </p>
+
+                    </div>
+
+
+                    {% if product.active %}
+
+                    <span class="status">
+                        Active
+                    </span>
+
+                    {% else %}
+
+                    <span
+                        class="status"
+                        style="background:#351212;color:#fca5a5;"
+                    >
+                        Inactive
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="empty">
+
+                    📦
+
+                    <br><br>
+
+                    No products available.
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- ADD PRODUCT -->
+
+        <section
+            class="panel"
+            id="add-product"
+        >
+
+            <div class="panel-header">
+
+                <h2>
+                    Add New Product
+                </h2>
+
+            </div>
+
+
+            <form
+                action="/admin/products/add"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Product Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="e.g. ChatGPT"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Category
+                        </label>
+
+                        <select
+                            name="category"
+                            required
+                        >
+
+                            <option value="Entertainment">
+                                🎬 Entertainment
+                            </option>
+
+                            <option value="AI Tools">
+                                🤖 AI Tools
+                            </option>
+
+                            <option value="VPN">
+                                🛡️ VPN & Privacy
+                            </option>
+
+                            <option value="Services">
+                                💼 Services
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Price
+                        </label>
+
+                        <input
+                            type="text"
+                            name="price"
+                            placeholder="e.g. Contact on WhatsApp"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Backup Icon
+                        </label>
+
+                        <input
+                            type="text"
+                            name="icon"
+                            value="⭐"
+                            maxlength="10"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Description
+                        </label>
+
+                        <textarea
+                            name="description"
+                            placeholder="Write a professional product description..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Product Logo
+                        </label>
+
+                        <input
+                            type="file"
+                            name="logo"
+                            accept=".png,.jpg,.jpeg,.webp"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <button
+                            type="submit"
+                            class="save-btn"
+                        >
+                            💾 Add Product
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Tools | Khanz___subscriptions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #0d0d0d;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px 70px;
+            background:
+                radial-gradient(circle at top, #241044 0%, #080808 62%);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #8b5cf6;
+            border-radius: 30px;
+            color: #c4b5fd;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #8b5cf6;
+        }
+
+        .hero p {
+            max-width: 850px;
+            margin: auto;
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        .section {
+            padding: 70px 7%;
+            max-width: 1450px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #999;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 18px;
+            padding: 25px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+            border-color: #8b5cf6;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1b1b1b;
+            font-size: 31px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            width: fit-content;
+            font-size: 12px;
+            color: #c4b5fd;
+            border: 1px solid #493276;
+            padding: 4px 9px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .product h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .product p {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .order {
+            display: block;
+            text-align: center;
+            padding: 11px 15px;
+            border-radius: 9px;
+            background: #8b5cf6;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .order:hover {
+            background: #7c3aed;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .big-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: #999;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .cta {
+            max-width: 1000px;
+            margin: 30px auto 80px;
+            padding: 55px 25px;
+            text-align: center;
+            background: linear-gradient(135deg, #170b2b, #111);
+            border: 1px solid #292929;
+            border-radius: 22px;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #444;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #0d0d0d;
+            border-top: 1px solid #222;
+            color: #888;
+        }
+
+        @media (max-width: 1100px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 6px;
+                font-size: 12px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .section {
+                padding: 55px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        Khanz<span>___</span>subscriptions
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/entertainment">Entertainment</a>
+        <a href="/ai-tools">AI Tools</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="badge">
+        🤖 Premium AI Tools
+    </div>
+
+    <h1>
+        Powerful AI Tools
+        <br>
+        <span>For Work & Creativity</span>
+    </h1>
+
+    <p>
+        Explore AI assistants, creative tools, productivity platforms,
+        voice tools, video editors and other premium digital services
+        available through Khanz___subscriptions.
+    </p>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>AI Assistants</h2>
+
+        <p>
+            Powerful AI platforms for productivity, research, writing and everyday work.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <div class="product">
+
+            <div class="icon">✨</div>
+
+            <span class="tag">AI Assistant</span>
+
+            <h3>ChatGPT Plus</h3>
+
+            <p>
+                Advanced AI assistance for writing, brainstorming,
+                learning, coding, analysis and creative work.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20ChatGPT%20Plus."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">♊</div>
+
+            <span class="tag">AI Assistant</span>
+
+            <h3>Gemini Pro</h3>
+
+            <p>
+                AI assistance for writing, research, productivity,
+                coding and creative tasks.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Gemini%20Pro."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">🧠</div>
+
+            <span class="tag">AI Assistant</span>
+
+            <h3>Grok AI</h3>
+
+            <p>
+                AI assistant for conversations, information discovery,
+                reasoning and creative tasks.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Grok%20AI."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">🧩</div>
+
+            <span class="tag">AI Assistant</span>
+
+            <h3>Claude</h3>
+
+            <p>
+                AI assistant designed for writing, analysis,
+                reasoning, coding and document-based work.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Claude."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>Creator & Video Tools</h2>
+
+        <p>
+            Tools for video editing, content creation and digital creators.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <div class="product">
+
+            <div class="icon">🎨</div>
+
+            <span class="tag">Video Editing</span>
+
+            <h3>CapCut Pro</h3>
+
+            <p>
+                Advanced video editing features, effects, templates
+                and creator-focused tools.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20CapCut%20Pro."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">🎬</div>
+
+            <span class="tag">AI Video</span>
+
+            <h3>Google Flow</h3>
+
+            <p>
+                Explore AI-powered filmmaking and creative video
+                workflows with Google's Flow platform.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Google%20Flow."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">🎥</div>
+
+            <span class="tag">AI Video</span>
+
+            <h3>Runway</h3>
+
+            <p>
+                Creative AI tools for generating and editing video
+                content and visual media.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Runway."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">🎞️</div>
+
+            <span class="tag">AI Video</span>
+
+            <h3>Canva Pro</h3>
+
+            <p>
+                Professional design and content creation tools for
+                social media, presentations and visual projects.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Canva%20Pro."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>Voice & Audio AI</h2>
+
+        <p>
+            AI-powered tools for voice generation, audio and content production.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <div class="product">
+
+            <div class="icon">🎙️</div>
+
+            <span class="tag">AI Voice</span>
+
+            <h3>ElevenLabs</h3>
+
+            <p>
+                AI voice generation and audio tools for creators,
+                videos, narration and content projects.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20ElevenLabs."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">🔊</div>
+
+            <span class="tag">AI Voice</span>
+
+            <h3>PlayHT</h3>
+
+            <p>
+                AI voice and text-to-speech tools for digital content
+                and voice projects.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20PlayHT."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">🎧</div>
+
+            <span class="tag">Audio AI</span>
+
+            <h3>AI Audio Tools</h3>
+
+            <p>
+                Ask us about available AI-powered audio and voice
+                services for your projects.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20AI%20Audio%20Tools."
+                target="_blank"
+            >
+                Ask on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">🎤</div>
+
+            <span class="tag">Creator Tools</span>
+
+            <h3>Voice Creator Tools</h3>
+
+            <p>
+                Explore additional voice and creator-focused AI
+                services available through our catalogue.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Voice%20Creator%20Tools."
+                target="_blank"
+            >
+                Ask on WhatsApp →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>Productivity & Design</h2>
+
+        <p>
+            AI-powered tools for presentations, documents and creative workflows.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <div class="product">
+
+            <div class="icon">📊</div>
+
+            <span class="tag">Presentations</span>
+
+            <h3>Gamma AI</h3>
+
+            <p>
+                Create presentations, documents and visual content
+                with AI-assisted workflows.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Gamma%20AI."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">📝</div>
+
+            <span class="tag">Productivity</span>
+
+            <h3>Notion AI</h3>
+
+            <p>
+                AI-assisted productivity for notes, documents,
+                planning and knowledge management.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20Notion%20AI."
+                target="_blank"
+            >
+                Order on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">💻</div>
+
+            <span class="tag">Coding AI</span>
+
+            <h3>AI Coding Tools</h3>
+
+            <p>
+                AI-powered coding assistants and development tools
+                for programmers and developers.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20AI%20Coding%20Tools."
+                target="_blank"
+            >
+                Ask on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="icon">💡</div>
+
+            <span class="tag">Creative AI</span>
+
+            <h3>AI Creative Tools</h3>
+
+            <p>
+                Discover additional AI tools for writing, images,
+                design, productivity and content creation.
+            </p>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20AI%20Creative%20Tools."
+                target="_blank"
+            >
+                Ask on WhatsApp →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>Why Choose Our AI Tools?</h2>
+
+        <p>
+            Simple browsing and direct WhatsApp ordering.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <div class="info-card">
+
+            <div class="big-icon">🤖</div>
+
+            <h3>AI & Creator Focused</h3>
+
+            <p>
+                A growing catalogue of AI assistants and creative
+                productivity tools.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="big-icon">💬</div>
+
+            <h3>Direct WhatsApp Support</h3>
+
+            <p>
+                Contact us directly to ask about availability,
+                plans and service details.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="big-icon">⚡</div>
+
+            <h3>Easy Ordering</h3>
+
+            <p>
+                Choose a service and send your request directly
+                through WhatsApp.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="cta">
+
+    <h2>Looking For Another AI Tool?</h2>
+
+    <p>
+        Our catalogue can include additional AI and creator services.
+        Ask us about the tool you need.
+    </p>
+
+    <a
+        href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20to%20ask%20about%20an%20AI%20tool."
+        target="_blank"
+        class="btn primary"
+    >
+        Ask on WhatsApp
+    </a>
+
+    <a
+        href="/entertainment"
+        class="btn secondary"
+    >
+        Entertainment Subscriptions
+    </a>
+
+</div>
+
+
+<footer>
+
+    © 2026 Khanz___subscriptions
+    <br>
+    Premium Subscriptions & AI Tools
+
+</footer>
+
+</body>
+</html>

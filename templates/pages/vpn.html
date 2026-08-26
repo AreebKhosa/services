@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VPN & Privacy | Khanz___subscriptions</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            border-bottom: 1px solid #222;
+            background: #0b0b0b;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .brand span {
+            color: #8b5cf6;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px 45px;
+        }
+
+        .hero .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #999;
+            line-height: 1.7;
+        }
+
+        .products {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 25px 20px 70px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 18px;
+            padding: 25px;
+
+            display: flex;
+            flex-direction: column;
+
+            transition: .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #8b5cf6;
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #1b1b1b;
+            border-radius: 14px;
+
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .category {
+            color: #a78bfa;
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .order {
+            display: block;
+            text-align: center;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+
+            padding: 12px;
+            border-radius: 9px;
+
+            font-weight: bold;
+        }
+
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: #777;
+        }
+
+        footer {
+            border-top: 1px solid #222;
+            text-align: center;
+            padding: 25px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="brand">
+        Khanz<span>___</span>subscriptions
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/entertainment">Entertainment</a>
+        <a href="/ai-tools">AI Tools</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="icon">
+        🛡️
+    </div>
+
+    <h1>
+        VPN & Privacy
+    </h1>
+
+    <p>
+        Explore available VPN services for secure and private
+        internet connections. Select a service below and contact
+        us on WhatsApp for availability and pricing.
+    </p>
+
+</section>
+
+
+<section class="products">
+
+    {% if products %}
+
+        {% for product in products %}
+
+        <article class="card">
+
+            <div class="product-icon">
+                {{ product.icon }}
+            </div>
+
+            <div class="category">
+                {{ product.category }}
+            </div>
+
+            <h2>
+                {{ product.name }}
+            </h2>
+
+            <div class="description">
+                {{ product.description }}
+            </div>
+
+            <div class="price">
+                {{ product.price }}
+            </div>
+
+            <a
+                class="order"
+                href="https://wa.me/923343516033?text=Hello%2C%20I%20want%20to%20order%20{{ product.name | urlencode }}"
+                target="_blank"
+            >
+                Order on WhatsApp
+            </a>
+
+        </article>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty">
+
+            🛡️
+
+            <h2>
+                No VPN products available
+            </h2>
+
+            <p>
+                Please check back soon.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+
+<footer>
+
+    © 2026 Khanz___subscriptions.
+    All rights reserved.
+
+</footer>
+
+</body>
+</html>

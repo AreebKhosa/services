@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services | Khanz___subscriptions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #0d0d0d;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px 70px;
+            background:
+                radial-gradient(circle at top, #241044 0%, #080808 62%);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #8b5cf6;
+            border-radius: 30px;
+            color: #c4b5fd;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #8b5cf6;
+        }
+
+        .hero p {
+            max-width: 850px;
+            margin: auto;
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        .section {
+            padding: 70px 7%;
+            max-width: 1450px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #999;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 18px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-6px);
+            border-color: #8b5cf6;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        .service h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .service ul {
+            list-style: none;
+            margin-bottom: 22px;
+        }
+
+        .service li {
+            color: #bbb;
+            font-size: 14px;
+            margin: 7px 0;
+        }
+
+        .service li::before {
+            content: "✓ ";
+            color: #a78bfa;
+            font-weight: bold;
+        }
+
+        .order {
+            display: block;
+            text-align: center;
+            padding: 11px 15px;
+            border-radius: 9px;
+            background: #8b5cf6;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .order:hover {
+            background: #7c3aed;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .step {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .number {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #8b5cf6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step p {
+            color: #999;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .cta {
+            max-width: 1000px;
+            margin: 30px auto 80px;
+            padding: 55px 25px;
+            text-align: center;
+            background: linear-gradient(135deg, #170b2b, #111);
+            border: 1px solid #292929;
+            border-radius: 22px;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #444;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #0d0d0d;
+            border-top: 1px solid #222;
+            color: #888;
+        }
+
+        @media (max-width: 950px) {
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                font-size: 12px;
+            }
+
+            .services,
+            .process {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        Khanz<span>___</span>subscriptions
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/entertainment">Entertainment</a>
+        <a href="/ai-tools">AI Tools</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="badge">
+        ⚡ Our Services
+    </div>
+
+    <h1>
+        Digital Services
+        <br>
+        <span>Made Simple</span>
+    </h1>
+
+    <p>
+        Khanz___subscriptions provides access to a growing range of
+        premium digital subscriptions, AI tools and creator services.
+        Browse our services and contact us directly on WhatsApp.
+    </p>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>What We Offer</h2>
+
+        <p>
+            Explore the main service categories available through our platform.
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+
+        <div class="service">
+
+            <div class="icon">🎬</div>
+
+            <h3>Entertainment Subscriptions</h3>
+
+            <p>
+                Premium streaming and entertainment services for
+                movies, shows, anime, music and more.
+            </p>
+
+            <ul>
+                <li>Netflix</li>
+                <li>Amazon Prime Video</li>
+                <li>Crunchyroll</li>
+                <li>HBO Max</li>
+                <li>Disney+</li>
+                <li>JioHotstar</li>
+                <li>And more</li>
+            </ul>
+
+            <a href="/entertainment" class="order">
+                Explore Entertainment →
+            </a>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="icon">🤖</div>
+
+            <h3>AI Tools</h3>
+
+            <p>
+                AI assistants, creator platforms, voice tools,
+                productivity solutions and creative AI services.
+            </p>
+
+            <ul>
+                <li>ChatGPT Plus</li>
+                <li>Gemini Pro</li>
+                <li>Grok AI</li>
+                <li>CapCut Pro</li>
+                <li>ElevenLabs</li>
+                <li>Gamma AI</li>
+                <li>And more</li>
+            </ul>
+
+            <a href="/ai-tools" class="order">
+                Explore AI Tools →
+            </a>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="icon">🎨</div>
+
+            <h3>Creator Services</h3>
+
+            <p>
+                Digital tools designed for creators, designers,
+                editors, students and online professionals.
+            </p>
+
+            <ul>
+                <li>Video editing tools</li>
+                <li>Design platforms</li>
+                <li>AI video tools</li>
+                <li>AI voice tools</li>
+                <li>Presentation tools</li>
+                <li>Content creation</li>
+                <li>More digital tools</li>
+            </ul>
+
+            <a
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20to%20ask%20about%20Creator%20Services."
+                target="_blank"
+                class="order"
+            >
+                Ask on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="icon">💼</div>
+
+            <h3>Productivity Tools</h3>
+
+            <p>
+                Digital services that can help with productivity,
+                organization, writing, research and professional work.
+            </p>
+
+            <ul>
+                <li>AI productivity tools</li>
+                <li>Writing tools</li>
+                <li>Research tools</li>
+                <li>Presentation tools</li>
+                <li>Workspace tools</li>
+            </ul>
+
+            <a
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20to%20ask%20about%20Productivity%20Tools."
+                target="_blank"
+                class="order"
+            >
+                Ask on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="icon">🎙️</div>
+
+            <h3>AI Voice & Audio</h3>
+
+            <p>
+                Voice generation and audio services for creators,
+                videos, narration and digital projects.
+            </p>
+
+            <ul>
+                <li>ElevenLabs</li>
+                <li>PlayHT</li>
+                <li>AI voice tools</li>
+                <li>Text-to-speech</li>
+                <li>Creator audio tools</li>
+            </ul>
+
+            <a
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20to%20ask%20about%20AI%20Voice%20and%20Audio."
+                target="_blank"
+                class="order"
+            >
+                Ask on WhatsApp →
+            </a>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="icon">📱</div>
+
+            <h3>Custom Requests</h3>
+
+            <p>
+                Can't find the service you need? Contact us and
+                ask about additional digital subscriptions and tools.
+            </p>
+
+            <ul>
+                <li>New subscription requests</li>
+                <li>AI tool requests</li>
+                <li>Creator tools</li>
+                <li>Digital services</li>
+                <li>Availability enquiries</li>
+            </ul>
+
+            <a
+                href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20have%20a%20custom%20service%20request."
+                target="_blank"
+                class="order"
+            >
+                Request a Service →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>How Ordering Works</h2>
+
+        <p>
+            Our ordering process is simple and handled directly through WhatsApp.
+        </p>
+
+    </div>
+
+
+    <div class="process">
+
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <h3>Browse</h3>
+
+            <p>
+                Explore our entertainment, AI tools and services.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <h3>Choose</h3>
+
+            <p>
+                Select the service or subscription you are interested in.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <h3>Contact</h3>
+
+            <p>
+                Send your request directly to us through WhatsApp.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <h3>Confirm</h3>
+
+            <p>
+                Discuss availability, details and complete your order.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="cta">
+
+    <h2>Need Something Specific?</h2>
+
+    <p>
+        Tell us which subscription, AI tool or digital service
+        you are looking for.
+    </p>
+
+    <a
+        href="https://wa.me/923343516033?text=Hello%20Khanz___subscriptions%2C%20I%20want%20to%20ask%20about%20a%20service."
+        target="_blank"
+        class="btn primary"
+    >
+        Contact on WhatsApp
+    </a>
+
+    <a href="/entertainment" class="btn secondary">
+        Entertainment
+    </a>
+
+    <a href="/ai-tools" class="btn secondary">
+        AI Tools
+    </a>
+
+</div>
+
+
+<footer>
+
+    © 2026 Khanz___subscriptions
+    <br>
+    Premium Subscriptions & AI Tools
+
+</footer>
+
+</body>
+</html>

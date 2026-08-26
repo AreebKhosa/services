@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | Khanz___subscriptions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: #fff;
+            line-height: 1.7;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #0d0d0d;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 24px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px;
+            background:
+                radial-gradient(circle at top, #241044 0%, #080808 60%);
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #8b5cf6;
+            color: #c4b5fd;
+            padding: 8px 18px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #8b5cf6;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: auto;
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        .section {
+            padding: 75px 7%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .section h2 span {
+            color: #8b5cf6;
+        }
+
+        .section p {
+            color: #aaa;
+            margin-bottom: 18px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 35px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 18px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #8b5cf6;
+        }
+
+        .card-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .step {
+            background: #111;
+            border: 1px solid #242424;
+            border-radius: 15px;
+            padding: 25px 18px;
+            text-align: center;
+        }
+
+        .number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #8b5cf6;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 40px auto 80px;
+            max-width: 900px;
+            padding: 60px 25px;
+            background: linear-gradient(135deg, #160b2b, #111);
+            border: 1px solid #292929;
+            border-radius: 22px;
+        }
+
+        .cta h2 {
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #444;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #0d0d0d;
+            border-top: 1px solid #222;
+            color: #888;
+        }
+
+        @media (max-width: 900px) {
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        Khanz<span>___</span>subscriptions
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/entertainment">Entertainment</a>
+        <a href="/ai-tools">AI Tools</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="badge">
+        About Khanz___subscriptions
+    </div>
+
+    <h1>
+        Premium Digital Services
+        <br>
+        <span>Made Simple</span>
+    </h1>
+
+    <p>
+        Khanz___subscriptions brings premium entertainment subscriptions
+        and powerful AI tools together in one convenient digital marketplace.
+    </p>
+
+</section>
+
+
+<section class="section">
+
+    <h2>Who <span>We Are</span></h2>
+
+    <p>
+        Khanz___subscriptions is a digital services business focused on
+        providing customers with access to a wide range of premium
+        entertainment subscriptions and modern AI-powered tools.
+    </p>
+
+    <p>
+        Our goal is to make discovering and ordering digital services
+        simple, convenient and straightforward. Instead of searching
+        across multiple platforms, customers can explore available
+        services in one place and contact us directly through WhatsApp.
+    </p>
+
+    <p>
+        From entertainment platforms and streaming services to AI,
+        creator, voice and productivity tools, our catalogue is designed
+        for customers who want convenient access to digital services.
+    </p>
+
+</section>
+
+
+<section class="section">
+
+    <h2>What <span>We Offer</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-icon">🎬</div>
+            <h3>Entertainment Subscriptions</h3>
+            <p>
+                Explore popular streaming and entertainment services
+                including Netflix, Amazon Prime Video, Crunchyroll,
+                HBO Max, Disney+ and JioHotstar.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🤖</div>
+            <h3>AI Tools</h3>
+            <p>
+                Discover AI services for productivity, research,
+                creativity, content creation and everyday digital work.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🎨</div>
+            <h3>Creator Tools</h3>
+            <p>
+                Tools for video editing, visual content, presentations,
+                audio production and other creative workflows.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Digital Convenience</h3>
+            <p>
+                Browse available services, select what you need and
+                contact us directly through WhatsApp to place your order.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2>Why Choose <span>Us?</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-icon">📱</div>
+            <h3>Easy Ordering</h3>
+            <p>
+                Orders can be started directly through WhatsApp without
+                complicated checkout processes.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🛍️</div>
+            <h3>Multiple Services</h3>
+            <p>
+                Entertainment subscriptions and AI tools are available
+                together in one organized marketplace.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">💬</div>
+            <h3>Direct Communication</h3>
+            <p>
+                Customers can communicate directly with Khanz___subscriptions
+                before confirming an order.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔎</div>
+            <h3>Clear Information</h3>
+            <p>
+                Each service will have its own information and ordering
+                section to make choosing a service easier.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2>How It <span>Works</span></h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="number">1</div>
+            <h3>Browse</h3>
+            <p>Explore our available digital services.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">2</div>
+            <h3>Choose</h3>
+            <p>Select the service you are interested in.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">3</div>
+            <h3>Contact</h3>
+            <p>Send your order request through WhatsApp.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">4</div>
+            <h3>Confirm</h3>
+            <p>Discuss the available option and confirm your order.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">5</div>
+            <h3>Receive</h3>
+            <p>Receive the relevant service details after confirmation.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="cta">
+
+    <h2>Looking for a Premium Digital Service?</h2>
+
+    <p>
+        Explore our entertainment subscriptions and AI tools,
+        or contact Khanz___subscriptions directly.
+    </p>
+
+    <a
+        href="/entertainment"
+        class="btn primary"
+    >
+        Explore Entertainment
+    </a>
+
+    <a
+        href="/ai-tools"
+        class="btn secondary"
+    >
+        Explore AI Tools
+    </a>
+
+    <a
+        href="https://wa.me/923343516033"
+        target="_blank"
+        class="btn secondary"
+    >
+        WhatsApp Us
+    </a>
+
+</div>
+
+
+<footer>
+
+    © 2026 Khanz___subscriptions
+    <br>
+    Premium Subscriptions & AI Tools
+
+</footer>
+
+</body>
+</html>
