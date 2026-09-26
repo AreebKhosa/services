@@ -15,12 +15,45 @@ app = FastAPI(
     description="Premium Subscriptions & AI Tools"
 )
 
+import json
+
 BASE_DIR = Path(__file__).resolve().parent
 
 UPLOAD_DIR = BASE_DIR / "static" / "uploads" / "products"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 Base.metadata.create_all(bind=engine)
+
+
+def seed_database():
+    """Auto-populate database from products_backup.json if empty (needed for Render/fresh deployments)."""
+    db = SessionLocal()
+    try:
+        if db.query(Product).count() == 0:
+            json_file = BASE_DIR / "products_backup.json"
+            if json_file.exists():
+                with open(json_file, "r", encoding="utf-8") as f:
+                    products_data = json.load(f)
+                for item in products_data:
+                    product = Product(
+                        name=item.get("name"),
+                        category=item.get("category"),
+                        description=item.get("description", ""),
+                        price=item.get("price", "Contact us"),
+                        icon=item.get("icon", "⭐"),
+                        logo=item.get("logo"),
+                        whatsapp=item.get("whatsapp", "03343516033"),
+                        active=item.get("active", True)
+                    )
+                    db.add(product)
+                db.commit()
+    except Exception as e:
+        print(f"Auto-seed error: {e}")
+    finally:
+        db.close()
+
+
+seed_database()
 
 app.mount(
     "/static",
